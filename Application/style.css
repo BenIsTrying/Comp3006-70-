@@ -3,13 +3,13 @@
     width:99%;
     height:500px;
     align-items: center;
-    background-color: aqua;
-    border: 1%;
+    background-color: rgb(200, 240, 240);
+   
 
 }
 body{
     align-items: center;
-    width: 95%;
-    border: solid black 2px;
-    padding:1%;
+    width: 100%;
+    
+    
 }
