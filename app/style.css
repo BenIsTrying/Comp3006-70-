@@ -1,6 +1,6 @@
 #container{
 
-    width:87%;
+    width:87.5%;
     height:500px;
     align-items: center;
     background-color: rgb(200, 240, 240);
@@ -8,10 +8,10 @@
 
 }
 body{
-    width:100%;
+    width:99%;
     height: 100%;
     align-items: center;
-    width: 100%;
+
     
     
 }
