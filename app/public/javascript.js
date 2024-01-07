@@ -5,27 +5,27 @@ $(function() {
 
     $("#booking1").click(function booking1(){
        
-        window.location = 'booking.html';//allows user to access the booking page after picking their movie
+        window.location = '/booking.html';//allows user to access the booking page after picking their movie
 
     });
     $("#booking2").click(function booking2(){
 
-        window.location = 'booking.html';//allows user to access the booking page after picking their movie
+        window.location = '/booking.html';//allows user to access the booking page after picking their movie
         
     });
     $("#booking3").click(function booking3(){
 
-        window.location = 'booking.html';//allows user to access the booking page after picking their movie
+        window.location = '/booking.html';//allows user to access the booking page after picking their movie
         
     });
     $("#booking4").click(function booking4(){
 
-        window.location = 'booking.html';//allows user to access the booking page after picking their movie
+        window.location = '/booking.html';//allows user to access the booking page after picking their movie
         
     });
     $("#booking5").click(function booking5(){
 
-        window.location = 'booking.html';//allows user to access the booking page after picking their movie
+        window.location = '/booking.html';//allows user to access the booking page after picking their movie
         
     });
     
