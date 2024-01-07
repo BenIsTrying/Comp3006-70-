@@ -77,6 +77,20 @@ body{
 
 }
 
+.grid-container {
+    display: grid;
+    row-gap: 50px;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+  }
+  .grid-item {
+    background-color: rgb(166, 255, 0);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 5px;
+    font-size: 20px;
+    text-align: center;
+  }
+
 
 #navbar{
     list-style-type: none;

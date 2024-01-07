@@ -8,65 +8,135 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>
-    function getSeatData(){
-        fetch('http://localhost:9000/seats')
-        .then(res => res.json())
-        .then(data => console.log(data));
-    };
-    function getMovieData(){
-        //movie data
-        fetch('http://localhost:9000/movies')
-        .then(res => res.json())
-        .then(data => console.log(data));
-    };
-    function getUserData(){
-        
-        //user data
-        fetch('http://localhost:9000/users')
-        .then(res => res.json())
-        .then(data => console.log(data));
-    };
-    function getAdminData(){
-        //admin data
-        fetch('http://localhost:9000/admins')
-        .then(res => res.json())
-        .then(data => console.log(data));
-    };
+
+    let currentMovie = sessionStorage.getItem('movieNumber');
     function startUp(){
-            getSeatData();
-            getMovieData();
-            getUserData();
-            getAdminData();
+            
 
-            let currentMovie = sessionStorage.getItem('movieNumber');
+            
 
-            console.log(currentMovie);
+            //console.log(currentMovie);
 
             //console.log(movieNumber);
 
             if (currentMovie == 1){
                 document.getElementById("movieSelected").innerHTML = "Horror The movie";
+                document.getElementById("moviePoster").src = "images/horror.jpg";
             }
             else if (currentMovie == 2){
                 document.getElementById("movieSelected").innerHTML = "Action The movie";
+                document.getElementById("moviePoster").src = "images/action.jpg";
             }
             else if (currentMovie== 3){
                 document.getElementById("movieSelected").innerHTML = "Art The movie";
+                document.getElementById("moviePoster").src = "images/art.jpg";
             }
             else if (currentMovie == 4){
                 document.getElementById("movieSelected").innerHTML= "Drama The movie";
+                document.getElementById("moviePoster").src = "images/drama.jpg";
             }
             else if (currentMovie == 5){
                 document.getElementById("movieSelected").innerHTML = "French movie The movie";
+                document.getElementById("moviePoster").src = "images/badMovie.jpg";
             }
             else{
                 document.getElementById("movieSelected").innerHTML = "Error";
             }
         }
+
             //const selection = document.getElementById()
-        </script>
-        
-    </head>
+
+
+
+
+        let seats;
+        let movies;
+        let admins;
+        let users;
+
+        function getSeatData(){
+            //seat data
+            fetch('http://localhost:9000/seats')
+            .then(res => res.json())
+            .then(data => useSeatData(data));
+            
+        };
+        function getMovieData(){
+            //movie data
+            fetch('http://localhost:9000/movies')
+            .then(res => res.json())
+            .then(data => useMovieData(data));
+        };
+        function getUserData(){
+            
+            //user data
+            fetch('http://localhost:9000/users')
+            .then(res => res.json())
+            .then(data => useUserData(data));
+        };
+        function getAdminData(){
+            //admin data
+            fetch('http://localhost:9000/admins')
+            .then(res => res.json())
+            .then(data => useAdminData(data));
+        };
+
+        function useSeatData(seats){
+            console.log("usable",seats);
+            console.log(seats[0]);
+
+          
+            let seatsScreens = seats[currentMovie-1].screen;
+            let currentSeatsRow1 = seats[currentMovie-1].Seat1;
+            let currentSeatsRow2 = seats[currentMovie-1].Seat2;
+            let currentSeatsRow3 = seats[currentMovie-1].Seat3;
+            let currentSeatsRow4 = seats[currentMovie-1].Seat4;
+            let currentSeatsRow5 = seats[currentMovie-1].Seat5;
+            console.log(seatsScreens,currentSeatsRow1 ,currentSeatsRow2 ,currentSeatsRow3  ,currentSeatsRow4  ,currentSeatsRow5);
+
+            if (currentSeatsRow1 == false){
+                document.getElementById("status1").innerHTML= "Seat free";
+            }
+            if (currentSeatsRow2 == false){
+                document.getElementById("status2").innerHTML= "Seat free";
+            }
+            if (currentSeatsRow3 == false){
+                document.getElementById("status3").innerHTML= "Seat free";
+            }
+            if (currentSeatsRow4 == false){
+                document.getElementById("status4").innerHTML= "Seat free";
+            }
+            if (currentSeatsRow5 == false){
+                document.getElementById("status5").innerHTML= "Seat free";
+            }
+
+        }
+        function useMovieData(movie){
+            console.log("usable",movie[currentMovie]);
+
+            if (currentMovie == 1){
+                
+            }
+            if (currentMovie == 2){
+            }
+            if (currentMovie == 3){
+            }
+            if (currentMovie ==4){
+            }
+            if (currentMovie == 5){
+            }
+
+        }
+        function useUserData(user){
+            console.log("usable",user);
+        }
+        function useAdminData(admin){
+            console.log("usable",admin);
+        }
+
+            </script>
+            
+        </head>
 
 <body onload="startUp()" >
 
@@ -88,15 +158,25 @@
                 <option value="5">Movie 5</option>
               </select> -->
 
-              <p><h2 id="movieSelected" > Movie name (click the select button)</h2></p>
+              <p><h2 id="movieSelected" > Movie name (click the select button)</h2><br>
+                 <img id="moviePoster" style="width:100%;height:200px; float:left;"></p>
 
-
+             
 
               <br><br>
-            
+                <p>
+              <div class="seatsUsed">
+                <div class="grid-item" id="grid1">Seat 1 <h3 id="status1"> Free</h3></div>
+                <div class="grid-item" id="grid2">Seat 2 <h3 id="status2"> Free</h3></div>
+                <div class="grid-item" id="grid3">Seat 3 <h3 id="status3"> Free</h3></div>
+                <div class="grid-item" id="grid4">Seat 4 <h3 id="status4"> Free</h3></div>
+                <div class="grid-item" id="grid5">Seat 5 <h3 id="status5"> Free</h3></div>
+              </div>
+            </p>
+              <br><br>
             
               <label for="seat">Please select seat:  </label><select name="seat" id="seat">
-                <option value="1">Seat 1</option>
+                <option value="1">Seat 1 </option>
                 <option value="2">Seat 2</option>
                 <option value="3">Seat 3</option>
                 <option value="4">Seat 4</option>

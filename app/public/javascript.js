@@ -1,7 +1,6 @@
 
 $(function() {
 
-    
 
     $("#booking1").click(function booking1(){
        
@@ -29,7 +28,10 @@ $(function() {
         
     });
 
-
+    getSeatData();
+    getMovieData();
+    getUserData();
+    getAdminData();
     
     
     // $("#showMovie").click(function changeCurrentMovie(){
@@ -62,8 +64,11 @@ $(function() {
 
     //first need to get each screen for each movie
 
+    let moviesData;
+
 
     
+
     $("#submit").click(function bookMovie(){
 
         console.log("yes working");
@@ -80,6 +85,7 @@ $(function() {
 
     });
 
+    //console.log(moviesData);
 
 });
 

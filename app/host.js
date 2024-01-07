@@ -67,7 +67,7 @@ let admins = mongoose.model("admin", adminsSchema);
 startup();
 let moviesData;
 let seatsData;
-let userData;
+let usersData;
 let adminsData;
 
 
@@ -83,7 +83,7 @@ async function startup(){
           users.find().then(
           function(value){
             console.log(value);
-            userData = value;
+            usersData = value;
           },
           movies.find().then(
           function(value){
