@@ -94,41 +94,64 @@
             let currentSeatsRow5 = seats[currentMovie-1].Seat5;
             console.log(seatsScreens,currentSeatsRow1 ,currentSeatsRow2 ,currentSeatsRow3  ,currentSeatsRow4  ,currentSeatsRow5);
 
-            if (currentSeatsRow1 == false){
-                document.getElementById("status1").innerHTML= "Seat free";
+            if (currentSeatsRow1 != false){
+                document.getElementById("status1").innerHTML= "Seat taken";
+                document.getElementById("status1").style.backgroundColor = "red";
             }
-            if (currentSeatsRow2 == false){
-                document.getElementById("status2").innerHTML= "Seat free";
+            if (currentSeatsRow2 != false){
+                document.getElementById("status2").innerHTML= "Seat taken";
+                document.getElementById("status2").style.backgroundColor = "red";
             }
-            if (currentSeatsRow3 == false){
-                document.getElementById("status3").innerHTML= "Seat free";
+            if (currentSeatsRow3 != false){
+                document.getElementById("status3").innerHTML= "Seat taken";
+                document.getElementById("status3").style.backgroundColor = "red";
             }
-            if (currentSeatsRow4 == false){
-                document.getElementById("status4").innerHTML= "Seat free";
+            if (currentSeatsRow4 != false){
+                document.getElementById("status4").innerHTML= "Seat taken";
+                document.getElementById("status4").style.backgroundColor = "red";
             }
-            if (currentSeatsRow5 == false){
-                document.getElementById("status5").innerHTML= "Seat free";
+            if (currentSeatsRow5 != false){
+                document.getElementById("status5").innerHTML= "Seat taken";
+                document.getElementById("status5").style.backgroundColor = "red";
             }
 
         }
         function useMovieData(movie){
             console.log("usable",movie[currentMovie]);
 
-            if (currentMovie == 1){
-                
+            let currentMovieScreen1 = movie[currentMovie].Screen1;
+            let currentMovieScreen2 = movie[currentMovie].Screen2;
+            let currentMovieScreen3 = movie[currentMovie].Screen3;
+            let currentMovieScreen4 = movie[currentMovie].Screen4;
+            let currentMovieScreen5 = movie[currentMovie].Screen5;
+
+            console.log(currentMovieScreen1,currentMovieScreen2,currentMovieScreen3,currentMovieScreen4,currentMovieScreen5);
+            if (currentMovieScreen1 == 'false'){
+                document.getElementById("mstatus1").innerHTML= "Movie not shown";
+                document.getElementById("mstatus1").style.backgroundColor = "red";
             }
-            if (currentMovie == 2){
+            if (currentMovieScreen2 == 'false'){
+                document.getElementById("mstatus2").innerHTML= "Movie not shown";
+                document.getElementById("mstatus2").style.backgroundColor = "red";
             }
-            if (currentMovie == 3){
+            if (currentMovieScreen3 == 'false'){
+                document.getElementById("mstatus3").innerHTML= "Movie not shown";
+                document.getElementById("mstatus3").style.backgroundColor = "red";
             }
-            if (currentMovie ==4){
+            if (currentMovieScreen4 == 'false'){
+                document.getElementById("mstatus4").innerHTML= "Movie not shown";
+                document.getElementById("mstatus4").style.backgroundColor = "red";
             }
-            if (currentMovie == 5){
+            if (currentMovieScreen5 == 'false'){
+                document.getElementById("mstatus5").innerHTML= "Movie not shown";
+                document.getElementById("mstatus5").style.backgroundColor = "red";
             }
 
         }
         function useUserData(user){
             console.log("usable",user);
+
+
         }
         function useAdminData(admin){
             console.log("usable",admin);
@@ -167,13 +190,12 @@
                 <p>
               <div class="seatsUsed">
                 <div class="grid-item" id="grid1">Seat 1 <h3 id="status1"> Free</h3></div>
-                <div class="grid-item" id="grid2">Seat 2 <h3 id="status2"> Free</h3></div>
+                <div class="grid-item-right" id="grid2">Seat 2 <h3 id="status2"> Free</h3></div>
                 <div class="grid-item" id="grid3">Seat 3 <h3 id="status3"> Free</h3></div>
-                <div class="grid-item" id="grid4">Seat 4 <h3 id="status4"> Free</h3></div>
-                <div class="grid-item" id="grid5">Seat 5 <h3 id="status5"> Free</h3></div>
+                <div class="grid-item-right" id="grid4">Seat 4 <h3 id="status4"> Free</h3></div>
+                <div class="grid-item-bottom" id="grid5">Seat 5 <h3 id="status5"> Free</h3></div>
               </div>
-            </p>
-              <br><br>
+            </p><br><br>
             
               <label for="seat">Please select seat:  </label><select name="seat" id="seat">
                 <option value="1">Seat 1 </option>
@@ -182,6 +204,25 @@
                 <option value="4">Seat 4</option>
                 <option value="5">Seat 5</option>
               </select>
+              <br><br>
+
+              <div class="screensAvailable">
+                <div class="grid-item" id="grid1">Screen 1 <h3 id="mstatus1"> Available</h3></div>
+                <div class="grid-item-right" id="grid2">Screen 2 <h3 id="mstatus2"> Available</h3></div>
+                <div class="grid-item" id="grid3">Screen 3 <h3 id="mstatus3"> Available</h3></div>
+                <div class="grid-item-right" id="grid4">Screen 4 <h3 id="mstatus4"> Available</h3></div>
+                <div class="grid-item-bottom" id="grid5">Screen 5 <h3 id="mstatus5">Available</h3></div>
+              </div>
+            </p><br><br>
+
+              <label for="screen">Please select Screen:  </label><select name="screen" id="screen">
+                <option value="1">Screen 1 </option>
+                <option value="2">Screen 2</option>
+                <option value="3">Screen 3</option>
+                <option value="4">Screen 4</option>
+                <option value="5">Screen 5</option>
+              </select>
+              
               <br><br>
 
                 <label for="fname">First name:</label>
