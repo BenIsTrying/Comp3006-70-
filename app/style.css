@@ -7,16 +7,64 @@
     float: right;
 
 }
+#containerMovies{
+
+    width:87.5%;
+    height:auto;
+    align-items: center;
+    background-color: rgb(200, 240, 240);
+    float: right;
+
+}
 body{
     width:99%;
     height: 100%;
     align-items: center;
-
+    
     
     
 }
 
+#bookingMovie1{
 
+    width:98%;
+    height: 200px;
+    padding:1%;
+
+}
+#bookingMovie2{
+
+    width:98%;
+    height:  200px;
+    padding:1%;
+    
+}
+#bookingMovie3{
+
+    width:98%;
+    height:  200px;
+    padding:1%;
+    
+}
+#bookingMovie4{
+
+    width:98%;
+    height:  200px;
+    padding:1%;
+    
+}
+#bookingMovie5{
+
+    width:98%;
+    height: 200px;
+    padding:1%;
+    
+}
+#right{
+    float:right;
+    
+
+}
 
 
 
@@ -25,7 +73,7 @@ body{
     margin: 0;
     padding: 1%;
     width: 10%;
-    height: 500px;
+    height: 1000px;
     background-color: #005f6b;
     float: left;
 }
@@ -41,7 +89,7 @@ body{
 
 
 #navbar a:hover {
-background-color: #555;
-color: white;
-    }
+    background-color: #555;
+    color: white;
+}
 
