@@ -8,7 +8,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>
+    function getSeatData(){
+        fetch('http://localhost:9000/seats')
+        .then(res => res.json())
+        .then(data => console.log(data));
+    };
+    function getMovieData(){
+        //movie data
+        fetch('http://localhost:9000/movies')
+        .then(res => res.json())
+        .then(data => console.log(data));
+    };
+    function getUserData(){
+        
+        //user data
+        fetch('http://localhost:9000/users')
+        .then(res => res.json())
+        .then(data => console.log(data));
+    };
+    function getAdminData(){
+        //admin data
+        fetch('http://localhost:9000/admins')
+        .then(res => res.json())
+        .then(data => console.log(data));
+    };
     function startUp(){
+            getSeatData();
+            getMovieData();
+            getUserData();
+            getAdminData();
+
             let currentMovie = sessionStorage.getItem('movieNumber');
 
             console.log(currentMovie);

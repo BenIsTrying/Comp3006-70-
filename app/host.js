@@ -24,8 +24,8 @@ server.get('/cinemas', (request, response) => {
 server.get('/booking', (request, response) => {
     response.sendFile(__dirname + "/public/booking.html");
 })
-server.get('/movies', (request, response) => {
-    response.sendFile(__dirname + "/public/movies.html");
+server.get('/moviesList', (request, response) => {
+    response.sendFile(__dirname + "/public/moviesList.html");
 })
 server.get('/style.css', (request, response) => {
     response.sendFile(__dirname + "/public/movies.html");
@@ -83,7 +83,7 @@ async function startup(){
           users.find().then(
           function(value){
             console.log(value);
-            UserData = value;
+            userData = value;
           },
           movies.find().then(
           function(value){
@@ -113,4 +113,13 @@ module.exports.seatsData = seatsData;
 
 server.get('/seats', (request, response) => {
     response.json(seatsData);
+})
+server.get('/admins', (request, response) => {
+    response.json(adminsData);
+})
+server.get('/users', (request, response) => {
+    response.json(usersData);
+})
+server.get('/movies', (request, response) => {
+    response.json(moviesData);
 })

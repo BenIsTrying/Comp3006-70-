@@ -1,7 +1,7 @@
 
 $(function() {
 
-
+    
 
     $("#booking1").click(function booking1(){
        
@@ -29,7 +29,7 @@ $(function() {
         
     });
 
-    
+
     
     
     // $("#showMovie").click(function changeCurrentMovie(){
@@ -57,6 +57,12 @@ $(function() {
     //     }
 
     // })
+
+    
+
+    //first need to get each screen for each movie
+
+
     
     $("#submit").click(function bookMovie(){
 
