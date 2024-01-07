@@ -33,6 +33,12 @@ server.get('/style.css', (request, response) => {
 server.get('/javascript.js', (request, response) => {
     response.sendFile(__dirname + "/public/movies.html");
 })
+server.get('/adminLogin.js', (request, response) => {
+    response.sendFile(__dirname + "/public/adminLogin.html");
+})
+server.get('/admin.js', (request, response) => {
+    response.sendFile(__dirname + "/public/admin.html");
+})
 
 
 server.listen(port, function() {
