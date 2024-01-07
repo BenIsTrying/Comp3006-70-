@@ -7,6 +7,11 @@
     <script src="javascript.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+        function setMovie(movieNumber){
+        sessionStorage.setItem('movieNumber', movieNumber);
+        }
+        </script>
 </head>
 <body>
     <div id="navbar">
@@ -26,7 +31,7 @@
             
             <h1>Action Movie</h1>
             <p>Book now - 
-            <button id="booking1">book movie</button>
+            <button id="booking1" onclick="setMovie(1)">book movie</button>
             </p>
         </p>
     </p>
