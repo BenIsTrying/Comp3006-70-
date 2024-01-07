@@ -29,31 +29,32 @@ $(function() {
         
     });
     
-    $("#showMovie").click(function changeCurrentMovie(){
+    
+    // $("#showMovie").click(function changeCurrentMovie(){
            
-        movieNumber = document.getElementById("movie").value;
-        console.log(movieNumber);
+    //     movieNumber = document.getElementById("movie").value;
+    //     console.log(movieNumber);
 
-        if (movieNumber == 1){
-            document.getElementById("movieSelected").textContent = "Horror The movie";
-        }
-        else if (movieNumber == 2){
-            document.getElementById("movieSelected").textContent = "Action The movie";
-        }
-        else if (movieNumber == 3){
-            document.getElementById("movieSelected").textContent = "Art The movie";
-        }
-        else if (movieNumber == 4){
-            document.getElementById("movieSelected").textContent = "Drama The movie";
-        }
-        else if (movieNumber == 5){
-            document.getElementById("movieSelected").textContent = "French movie The movie";
-        }
-        else{
-            document.getElementById("movieSelected").textContent = "Error";
-        }
+    //     if (movieNumber == 1){
+    //         document.getElementById("movieSelected").textContent = "Horror The movie";
+    //     }
+    //     else if (movieNumber == 2){
+    //         document.getElementById("movieSelected").textContent = "Action The movie";
+    //     }
+    //     else if (movieNumber == 3){
+    //         document.getElementById("movieSelected").textContent = "Art The movie";
+    //     }
+    //     else if (movieNumber == 4){
+    //         document.getElementById("movieSelected").textContent = "Drama The movie";
+    //     }
+    //     else if (movieNumber == 5){
+    //         document.getElementById("movieSelected").textContent = "French movie The movie";
+    //     }
+    //     else{
+    //         document.getElementById("movieSelected").textContent = "Error";
+    //     }
 
-    })
+    // })
     
     $("#submit").click(function bookMovie(){
 

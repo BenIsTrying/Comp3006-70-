@@ -7,24 +7,58 @@
     <script src="javascript.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body>
+<script>
+    function startUp(){
+            let currentMovie = sessionStorage.getItem('movieNumber');
+
+            console.log(currentMovie);
+
+            //console.log(movieNumber);
+
+            if (currentMovie == 1){
+                document.getElementById("movieSelected").innerHTML = "Horror The movie";
+            }
+            else if (currentMovie == 2){
+                document.getElementById("movieSelected").innerHTML = "Action The movie";
+            }
+            else if (currentMovie== 3){
+                document.getElementById("movieSelected").innerHTML = "Art The movie";
+            }
+            else if (currentMovie == 4){
+                document.getElementById("movieSelected").innerHTML= "Drama The movie";
+            }
+            else if (currentMovie == 5){
+                document.getElementById("movieSelected").innerHTML = "French movie The movie";
+            }
+            else{
+                document.getElementById("movieSelected").innerHTML = "Error";
+            }
+        }
+            //const selection = document.getElementById()
+        </script>
+        
+    </head>
+
+<body onload="startUp()" >
 
     <a href="index.html" class="navbarButton">Back</a>
 
     <div id="bookingDiv">
 
+
+        
         
             <br>
             <label for="movie">Movie: </label>
-                <select name="movie" id="movie">
+            
+                <!-- <select name="movie" id="movie">
                 <option value="1">Movie 1</option>
                 <option value="2">Movie 2</option>
                 <option value="3">Movie 3</option>
                 <option value="4">Movie 4</option>
                 <option value="5">Movie 5</option>
-              </select>
-                <button id="showMovie">Select movie</button>
+              </select> -->
+
               <p><h2 id="movieSelected" > Movie name (click the select button)</h2></p>
 
 

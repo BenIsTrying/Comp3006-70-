@@ -7,6 +7,11 @@
     <script src="javascript.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+        function setMovie(movieNumber){
+        sessionStorage.setItem('movieNumber', movieNumber);
+        }
+        </script>
 </head>
 <body>
     <div id="navbar">
@@ -27,8 +32,9 @@
         
         <h1>Horror Movie</h1>
         <p>Book now - 
-        <button id="booking1">book movie</button>
+        <button id="booking1" onclick="setMovie(1)">book movie</button>
         </p>
+        
     </p>
 
 
@@ -40,8 +46,9 @@
         
         <h1>Action Movie</h1>
         <p>Book now - 
-        <button id="booking2">book movie</button>
+        <button id="booking2" onclick="setMovie(2)">book movie</button>
         </p>
+        
     </p>
 </div>
 <div class="movieButton" id="bookingMovie3">
@@ -51,7 +58,7 @@
         
         <h1>Art Movie</h1>
         <p>Book now - 
-        <button id="booking3">book movie</button>
+        <button id="booking3" onclick="setMovie(3)">book movie</button>
         </p>
     </p>
 </div>
@@ -62,7 +69,7 @@
         
         <h1>Drama Movie</h1>
         <p>Book now - 
-        <button id="booking4">book movie</button>
+        <button id="booking4" onclick="setMovie(4)">book movie</button>
         </p>
     </p>
 </div>
@@ -73,7 +80,7 @@
         
         <h1>Bad Movie</h1>
         <p>Book now - 
-        <button id="booking5">book movie</button>
+        <button id="booking5" onclick="setMovie(5)">book movie</button>
         </p>
     </p>
 </div>
