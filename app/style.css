@@ -66,6 +66,16 @@ body{
 
 }
 
+#bookingDiv{
+
+    background-color: aquamarine;
+    margin: auto;
+    width: 50%;
+    border: 3px solid rgb(199, 199, 199);
+    padding: 10px;
+    text-align: center;
+
+}
 
 
 #navbar{

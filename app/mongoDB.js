@@ -25,7 +25,7 @@ const client = new MongoClient(uri, {
 async function run() {
   try {
     await client.connect();
-    await client.db("admin").command({ ping: 1 });
+    await client.db("movies").command({ ping: 1 });
     console.log("Connected");
   } finally {
     await client.close();
