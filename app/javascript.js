@@ -5,7 +5,6 @@ $(function() {
 
     $("#booking1").click(function booking1(){
        
-        console.log(movieNumber);
         window.location = 'booking.html';//allows user to access the booking page after picking their movie
 
     });
