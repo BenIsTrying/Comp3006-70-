@@ -28,6 +28,8 @@ $(function() {
         window.location = '/booking.html';//allows user to access the booking page after picking their movie
         
     });
+
+    
     
     
     // $("#showMovie").click(function changeCurrentMovie(){
