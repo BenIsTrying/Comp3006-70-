@@ -9,6 +9,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>
 
+const webSocket = new WebSocket('ws://localhost:8080/');
+    webSocket.onmessage = (event) => {
+      console.log(event.data)
+      
+    };
+    function sendMessage(message) {
+      webSocket.send(message)
+    }
+    
+    
+
+
     let currentMovie = sessionStorage.getItem('movieNumber');
     function startUp(){
             
@@ -156,7 +168,7 @@
 <body onload="startUp()" >
 
     <a href="/" class="navbarButton">Back</a>
-
+    <button onClick="sendMessage('hello')"> send message</button>
     <div id="bookingDiv">
 
 

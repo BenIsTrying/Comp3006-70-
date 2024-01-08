@@ -4,6 +4,28 @@ let port = 9000;
 //let DBconnect = require("./mongoDB");
 
 var express= require('express');
+const WebSocket = require('ws');
+
+const { WebSocketServer } = require('ws');
+
+const wss = new WebSocket.Server({ port: 8080 });
+
+wss.on('connection', ws => {
+    console.log('New client connected');
+    
+    ws.onmessage = function(event){
+        console.log('Received message:' + event.data);
+        wss.clients.forEach((client) => {
+        client.send('Server received your message: ' + event.data);
+        });
+    
+    }
+
+    ws.on('close', () => {
+        console.log('Client disconnected');
+    });
+});
+
 
 var server = express();
 
