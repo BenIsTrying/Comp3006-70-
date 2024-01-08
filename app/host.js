@@ -12,12 +12,58 @@ const wss = new WebSocket.Server({ port: 8080 });
 
 wss.on('connection', ws => {
     console.log('New client connected');
-    
+
     ws.onmessage = function(event){
         console.log('Received message:' + event.data);
         wss.clients.forEach((client) => {
         client.send('Server received your message: ' + event.data);
         });
+        let recievedMessage = JSON.parse(event.data);
+        console.log(recievedMessage);
+
+        if (recievedMessage.func == "create"){
+            var user = {
+                _id : new ObjectId(),
+                user_ID : recievedMessage.user_ID,
+                Username : recievedMessage.Username,
+                Password : recievedMessage.Password,
+                Email : recievedMessage.Email
+            }
+
+            users.create(user);
+            console.log("user being made");
+        }
+        if (recievedMessage.func == "update"){
+            console.log("updateing the user");
+            
+            let message = {
+                func : "update",
+                _id : idInp,
+                user_ID : user_IDInp,
+                Username : usernameInp,
+                Password : passwordInp,
+                Email : emailInp
+            
+            }
+            let holdID = message._id;
+            let newMessage = {
+                user_ID : user_IDInp,
+                Username : usernameInp,
+                Password : passwordInp,
+                Email : emailInp
+            }
+
+
+
+            updateUser(holdID, newMessage);
+
+        }
+        if (recievedMessage.func == "delete"){
+            deleteUser(recievedMessage._id);
+            
+        }
+        
+        
     
     }
 
@@ -159,6 +205,33 @@ function closeHost(){
 }
 
 
+async function deleteUser(id){
+            console.log("deleteing the user");
+            let response = await users.findByIdAndDelete( id );
+            console.log(response);
+        }
+
+async function updateUser(){
+
+    await users.findByIdAndUpdate(id, newMessage);
+}
+
+async function createNewUser(){
+    console.log("new user time");
+
+    const newUser = {
+        Email: createEmail,
+        Password: createPassword,
+        User_ID: createUserId,
+        Username: createUsername,
+    };
+
+    let ressponse = await user.create(newUser);
+    await getUserData();
+    return response.User_ID.toString();
+}
+
 module.exports.seatsData = seatsData;
 module.exports.closeHost = closeHost;
 module.exports.sayHello = sayHello;
+module.exports.createNewUser = createNewUser;

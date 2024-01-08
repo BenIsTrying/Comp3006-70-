@@ -9,6 +9,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script>
 
+const webSocket = new WebSocket('ws://localhost:8080/');
+    webSocket.onmessage = (event) => {
+      console.log(event.data)
+      
+    };
+    function sendMessage(message) {
+      webSocket.send(message)
+    }
+
         function startUp(){
                 
     
@@ -46,29 +55,72 @@
             function useUserData(user){
                 console.log("usable",user);
                 document.getElementById("screenText").innerHTML = user[0].user_ID +"\n"+ user[0].Email +"\n"+ user[0].Password  +"\n"+ user[0].Username;
-    
+                
             }
-            function createNewUser(){
-                console.log("new user time");
+            
+
+            function createUser(){
+                let user_ID = document.getElementById("user_ID");
+                let emailvar = document.getElementById("emailCreate");
+                let passwordvar = document.getElementById("passwordCreate");
+                let usernamevar = document.getElementById("usernameCreate");
+
+                let user_IDInp = user_ID.value;
+                let emailInp = emailvar.value;
+                let passwordInp = passwordvar.value;
+                let usernameInp = usernamevar.value; 
+
+                let message = {
+                    func : "create",
+                    user_ID : user_IDInp,
+                    Username : usernameInp,
+                    Password : passwordInp,
+                    Email : emailInp
+                }
+
+                webSocket.send(JSON.stringify(message));
             }
+
+            
             function updateUser(){
                 console.log("update");
+                let user_ID = document.getElementById("user_IDUpdate");
+                let emailvar = document.getElementById("emailUpdate");
+                let passwordvar = document.getElementById("passwordUpdate");
+                let usernamevar = document.getElementById("usernameUpdate");
+                let id = document.getElementById("_idUpdate");
 
-                async function updateModuleCode(oldCode, newCode) {
-                // Identify the module.
+                let user_IDInp = user_ID.value;
+                let emailInp = emailvar.value;
+                let passwordInp = passwordvar.value;
+                let usernameInp = usernamevar.value; 
+                idInp = id.value;
 
-                let users = await users.findOne({code: oldCode});
-                // Update the module code.
+                let message = {
+                    func : "update",
+                    _id : idInp,
+                    user_ID : user_IDInp,
+                    Username : usernameInp,
+                    Password : passwordInp,
+                    Email : emailInp
                 
-                users.code = newCode;
-                
-                
-                await module.save();
                 }
-                updateModuleCode("COMP3006", "COMP3003");
+
+                webSocket.send(JSON.stringify(message));
+                
             }
             function deleteUser(){
                 console.log("delete");
+                let user_ID = document.getElementById("user_IDDelete");
+                let user_IDInp = user_ID.value;
+                let message = {
+                    func : "delete",
+                    _id : user_IDInp
+                
+                }
+
+                webSocket.send(JSON.stringify(message));
+
             }
     
                 </script>
@@ -109,7 +161,7 @@
         <label for="usernameCreate">Username: </label>
         <input type="text" id="usernameCreate" name="usernameCreate"><br>
 
-        <button id="createSubmit" onclick="createNewUser()">Create new user</button>
+        <button id="createSubmit" onclick="createUser()">Create new user</button>
 
 
    </div>
@@ -124,9 +176,10 @@
    </div>
 
    <div id="update"  class="crud">
-
-    <label for="user_ID">User ID: </label>
-        <input type="text" id="user_ID" name="user_ID"><br>
+    <label for="_idUpdate">id: </label>
+        <input type="text" id="_idUpdate" name="_idUpdate"><br>
+        <label for="user_ID">User ID: </label>
+        <input type="text" id="user_IDUpdate" name="user_ID"><br>
         <label for="emailUpdate">Email: </label>
         <input type="text" id="emailUpdate" name="emailUpdate"><br>
         <label for="passwordUpdate">Password: </label>
@@ -142,7 +195,7 @@
    <div id="delete"  class="crud">
 
     <label for="user_ID">User ID: </label>
-    <input type="text" id="user_ID" name="user_ID"><br>
+    <input type="text" id="user_IDDelete" name="user_ID"><br>
 
     <button id="deleteSubmit" onclick="deleteUser()">Delete user</button>
 

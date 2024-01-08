@@ -17,6 +17,12 @@ suite("Test suite description", function() {
         chai.assert.equal(result, "hello", "Result should say 'hello'");
 
     });
+    test("Test admin login", function() {
+        let result = host.adminSignIn();
+        chai.assert.isString(result, );
+        chai.assert.equal(result, "Dave admin123", "Result should say 'hello'");
+
+    });
     suiteTeardown(function(){
         host.closeHost();
     })
