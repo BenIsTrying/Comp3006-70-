@@ -8,7 +8,7 @@ var express= require('express');
 var server = express();
 
 function sayHello() {
-    return "hosting is on";
+    return "hello";
 }
 
 let app = http.createServer(server);
@@ -114,7 +114,6 @@ async function startup(){
 }
 
 
-module.exports.seatsData = seatsData;
 
 
 server.get('/seats', (request, response) => {
@@ -129,3 +128,15 @@ server.get('/users', (request, response) => {
 server.get('/movies', (request, response) => {
     response.json(moviesData);
 })
+
+function closeHost(){
+    //sockserver.close();
+    app.close(()=>{
+        process.exit(0);
+    })
+}
+
+
+module.exports.seatsData = seatsData;
+module.exports.closeHost = closeHost;
+module.exports.sayHello = sayHello;
