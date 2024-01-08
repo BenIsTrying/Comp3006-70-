@@ -53,6 +53,19 @@
             }
             function updateUser(){
                 console.log("update");
+
+                async function updateModuleCode(oldCode, newCode) {
+                // Identify the module.
+
+                let users = await users.findOne({code: oldCode});
+                // Update the module code.
+                
+                users.code = newCode;
+                
+                
+                await module.save();
+                }
+                updateModuleCode("COMP3006", "COMP3003");
             }
             function deleteUser(){
                 console.log("delete");
