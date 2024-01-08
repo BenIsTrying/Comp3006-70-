@@ -37,25 +37,24 @@ wss.on('connection', ws => {
             console.log("updateing the user");
             
             let message = {
-                func : "update",
-                _id : idInp,
-                user_ID : user_IDInp,
-                Username : usernameInp,
-                Password : passwordInp,
-                Email : emailInp
+                user_ID : recievedMessage.user_ID,
+                Username : recievedMessage.Username,
+                Password :recievedMessage.Password,
+                Email : recievedMessage.Email
+
+
+                // _id : idInp,
+                // user_ID : user_IDInp,
+                // Username : usernameInp,
+                // Password : passwordInp,
+                // Email : emailInp
             
             }
-            let holdID = message._id;
-            let newMessage = {
-                user_ID : user_IDInp,
-                Username : usernameInp,
-                Password : passwordInp,
-                Email : emailInp
-            }
+           
 
 
 
-            updateUser(holdID, newMessage);
+            updateUser(recievedMessage._id, message);
 
         }
         if (recievedMessage.func == "delete"){
@@ -211,9 +210,9 @@ async function deleteUser(id){
             console.log(response);
         }
 
-async function updateUser(){
+async function updateUser(_id, message){
 
-    await users.findByIdAndUpdate(id, newMessage);
+    await users.findByIdAndUpdate(_id, message);
 }
 
 async function createNewUser(){
@@ -235,3 +234,4 @@ module.exports.seatsData = seatsData;
 module.exports.closeHost = closeHost;
 module.exports.sayHello = sayHello;
 module.exports.createNewUser = createNewUser;
+module.exports.server = server;
