@@ -11,11 +11,8 @@ chai.use(chaiAsPromised);
 
 
 suite("Test suite description", function() {
-    test("Test 1 description", function() {
-    // Test code goes here.
-    });
     test("Test hello function", function() {
-        let result = functions.sayHello();
+        let result = host.sayHello();
         chai.assert.isString(result, "Result should be string");
         chai.assert.equal(result, "hello", "Result should say 'hello'");
 
