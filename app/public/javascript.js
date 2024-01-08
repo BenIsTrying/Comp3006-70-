@@ -28,10 +28,6 @@ $(function() {
         
     });
 
-    getSeatData();
-    getMovieData();
-    getUserData();
-    getAdminData();
     
     
     // $("#showMovie").click(function changeCurrentMovie(){
@@ -84,6 +80,7 @@ $(function() {
         }
 
     });
+   
 
     //console.log(moviesData);
 

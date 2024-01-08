@@ -113,6 +113,31 @@ body{
   }
 
 
+#adminLogin{
+    background-color: rgb(47, 169, 185);
+    margin: auto;
+    width: 50%;
+
+    padding: 10%;
+    text-align: center;
+    font-size: 30px;
+
+}
+
+.crud{
+    width:97%;
+    height:200px;
+    padding:1%;
+    background-color: #4a70a8;
+    border: 0.5% rgba(0, 0, 0, 0);
+    margin:auto;
+    color:white;
+
+}
+
+
+
+
 #navbar{
     list-style-type: none;
     margin: 0;

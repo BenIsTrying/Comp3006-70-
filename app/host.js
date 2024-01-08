@@ -33,10 +33,10 @@ server.get('/style.css', (request, response) => {
 server.get('/javascript.js', (request, response) => {
     response.sendFile(__dirname + "/public/movies.html");
 })
-server.get('/adminLogin.js', (request, response) => {
+server.get('/adminLogin', (request, response) => {
     response.sendFile(__dirname + "/public/adminLogin.html");
 })
-server.get('/admin.js', (request, response) => {
+server.get('/admin', (request, response) => {
     response.sendFile(__dirname + "/public/admin.html");
 })
 

@@ -8,25 +8,133 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script>
-        function setMovie(movieNumber){
-        sessionStorage.setItem('movieNumber', movieNumber);
-        }
-        </script>
+
+        function startUp(){
+                
+    
+                
+    
+                //console.log(currentMovie);
+    
+                //console.log(movieNumber);
+    
+
+                getUserData();
+            }
+    
+                //const selection = document.getElementById()
+    
+    
+    
+    
+            let seats;
+            let movies;
+            let users;
+            let currentMovie = 1;
+
+    
+            function getUserData(){
+                
+                //user data
+                fetch('http://localhost:9000/users')
+                .then(res => res.json())
+                .then(data => useUserData(data));
+            };
+            
+    
+            
+            function useUserData(user){
+                console.log("usable",user);
+                document.getElementById("screenText").innerHTML = user[0].user_ID +"\n"+ user[0].Email +"\n"+ user[0].Password  +"\n"+ user[0].Username;
+    
+            }
+            function createNewUser(){
+                console.log("new user time");
+            }
+            function updateUser(){
+                console.log("update");
+            }
+            function deleteUser(){
+                console.log("delete");
+            }
+    
+                </script>
 </head>
-<body>
+<body onload="startUp()">
     <div id="navbar">
         <a href="/" class="navbarButton">Home</a>
         <a href="/moviesList" class="navbarButton">Movies</a>
         <a href="/cinemas" class="navbarButton">Cinemas Nearby</a>
-        <a href="/adminLogin" class="navbarButton">Admin</a>
+        <a href="adminLogin" class="navbarButton">Admin</a>
     </div>
 
     
-<div id="container">
+<div id="container" >
+    <div>
 
-   
+        <label for="movie">Please select movie:  </label><select name="movie" id="movie">
+            <option value="1">movie 1 </option>
+            <option value="2">movie 2</option>
+            <option value="3">movie 3</option>
+            <option value="4">movie 4</option>
+            <option value="5">movie 5</option>
+          </select>
+          <button id="selectMovie" onclick="startUp()">confirm movie</button>
+
+    </div>
+
+   <div id="create" class="crud">
+
+        <p>Create new user</p>
+
+        <label for="user_ID">User ID: </label>
+        <input type="text" id="user_ID" name="user_ID"><br>
+        <label for="emailCreate">Email: </label>
+        <input type="text" id="emailCreate" name="emailCreate"><br>
+        <label for="passwordCreate">Password: </label>
+        <input type="text" id="passwordCreate" name="passwordCreate"><br>
+        <label for="usernameCreate">Username: </label>
+        <input type="text" id="usernameCreate" name="usernameCreate"><br>
+
+        <button id="createSubmit" onclick="createNewUser()">Create new user</button>
 
 
+   </div>
+
+   <div id="read"  class="crud">
+
+    <p id="screenText" onclick="getUserData()">Show screen data</p>
+
+
+    <button id="showScreens">Show screen</button>
+
+   </div>
+
+   <div id="update"  class="crud">
+
+    <label for="user_ID">User ID: </label>
+        <input type="text" id="user_ID" name="user_ID"><br>
+        <label for="emailUpdate">Email: </label>
+        <input type="text" id="emailUpdate" name="emailUpdate"><br>
+        <label for="passwordUpdate">Password: </label>
+        <input type="text" id="passwordUpdate" name="passwordUpdate"><br>
+        <label for="usernameUpdate">Username: </label>
+        <input type="text" id="usernameUpdate" name="usernameUpdate"><br>
+
+        <button id="updateSubmit" onclick="updateUser()">Update user details</button>
+
+
+   </div>
+
+   <div id="delete"  class="crud">
+
+    <label for="user_ID">User ID: </label>
+    <input type="text" id="user_ID" name="user_ID"><br>
+
+    <button id="deleteSubmit" onclick="deleteUser()">Delete user</button>
+
+
+   </div>
 
 </div>
 </body>

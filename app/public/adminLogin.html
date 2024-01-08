@@ -8,12 +8,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script>
-        function setMovie(movieNumber){
-        sessionStorage.setItem('movieNumber', movieNumber);
+
+         function getAdminData(){
+        //admin data
+        fetch('http://localhost:9000/admins')
+        .then(res => res.json())
+        .then(data => useAdminData(data));
+    };
+
+
+    let admins;
+
+    function useAdminData(admin){
+        console.log("usable",admin);
+
+        let adminUsername = admin[0].Username;
+        let adminPassword = admin[0].Password;
+
+        console.log(adminUsername, adminPassword);
+
+    }
+    function adminSignIn(){
+        
+            let username = $("#adminUsername").val();
+            let password = $("#adminPassword").val();
+            
+            console.log(username, password);
+
+            if((username = adminUsername) && (password = adminPassword)){
+                window.location = '/admin.html';
+            }
+
         }
         </script>
 </head>
-<body>
+<body onload="getAdminData()">
     <div id="navbar">
         <a href="/" class="navbarButton">Home</a>
         <a href="/moviesList" class="navbarButton">Movies</a>
@@ -24,7 +53,14 @@
     
 <div id="container">
 
-
+    <div id="adminLogin">
+        <label for="adminUsername">Username: </label>
+        <input type="text" id="adminUsername"><br><br>
+        <label for="adminPassword">Password: </label>
+        <input type="text" id="adminPassword"><br><br>
+        <button id="#adminSubmit"  onclick="adminSignIn()" >submit</button>
+       </div>
+    
 
 
 </div>

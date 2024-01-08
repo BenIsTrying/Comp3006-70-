@@ -51,7 +51,6 @@
 
         let seats;
         let movies;
-        let admins;
         let users;
 
         function getSeatData(){
@@ -74,12 +73,7 @@
             .then(res => res.json())
             .then(data => useUserData(data));
         };
-        function getAdminData(){
-            //admin data
-            fetch('http://localhost:9000/admins')
-            .then(res => res.json())
-            .then(data => useAdminData(data));
-        };
+        
 
         function useSeatData(seats){
             console.log("usable",seats);
@@ -153,9 +147,7 @@
 
 
         }
-        function useAdminData(admin){
-            console.log("usable",admin);
-        }
+        
 
             </script>
             
